@@ -9,7 +9,7 @@ export const Content = styled.div`
 width: 100%;
 max-width: 1000px;
 margin: 0 auto;
-padding: 1rem 0;
+padding: 1rem 2rem;
 height: 10vh;
 display: flex;
 align-items: center;

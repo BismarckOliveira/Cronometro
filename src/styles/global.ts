@@ -10,6 +10,22 @@ export const GlobalStyle = createGlobalStyle`
   
 }
 
+*::-webkit-scrollbar {
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--green);
+  border-radius: 4px;
+}
+*::-webkit-scrollbar-thumb:window-inactive {
+  border-radius: 4px;
+}
+
 *{
   margin: 0;
   padding: 0;

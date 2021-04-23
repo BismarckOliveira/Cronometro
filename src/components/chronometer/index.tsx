@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
-import { Container, Timer, Content } from './styles';
+import { useState } from 'react';
+import { TableTimes } from '../TableTimes';
+import { Container, Timer, Content, MenuChronometer } from './styles';
 
 
 export const Chronometer: React.FC = () => {
@@ -7,34 +8,34 @@ export const Chronometer: React.FC = () => {
   const [second, setSecond] = useState(0);
   const [hour, setHour] = useState(0);
   const [timer, setTimer] = useState(false);
-   
 
+  setTimeout(() => {
+    if (timer) {
+      setSecond(second + 1);
 
-  useEffect(() => {
-    setTimeout(() => {
-      if (timer) {
-        setSecond(second + 1);
-  
-        if (second === 60) {
-          setSecond(0);
-          setMinute(minute + 1);
-        }
-  
-        if (minute === 60) {
-          setMinute(0);
-          setHour(hour + 1);
-        }       
-  
+      if (second === 60) {
+        setSecond(0);
+        setMinute(minute + 1);
       }
-    }, 800);
-   
-  }, [timer, second, minute, hour])
+
+      if (minute === 60) {
+        setMinute(0);
+        setHour(hour + 1);
+      }
+
+    }
+  }, 1000);
+
 
   const formatCrono =
-    (hour < 10 ? '0' + hour : hour) + ':' +
-    (minute < 10 ? '0' + minute : minute) + ":" +
-    (second < 10 ? '0' + second : second);
+    formatTime(hour) + ':' +
+    formatTime(minute) + ":" +
+    formatTime(second);
 
+  function formatTime(value: Number) {
+    return value > 10 ? value.toString().padEnd(2, '0')
+      : value.toString().padStart(2, '0');
+  }
 
   function handleStart() {
     setTimer(true)
@@ -44,12 +45,19 @@ export const Chronometer: React.FC = () => {
     setTimer(false);
   }
 
+  function handleActive() {
+    return timer ? handleStop() : handleStart();
+  }
+
   function handleClear() {
     setHour(0);
     setMinute(0);
-    setSecond(0);  
+    setSecond(0);
   }
-
+   
+  function changeColors(){
+    return timer === true ? 'red' : 'green';
+  }
 
 
 
@@ -58,12 +66,15 @@ export const Chronometer: React.FC = () => {
       <Content>
         <Timer>
           <span>{formatCrono}</span>
+          <TableTimes/>
         </Timer>
-        <div>
-          <button type="button" onClick={handleStart}>Start</button>
-          <button type="button" onClick={handleStop}>Stop</button>
+        <MenuChronometer buttonColor={changeColors()}>
+          <button type="button" onClick={handleActive}>
+            {timer ? 'Stop' : 'Start'}
+          </button>
           <button type="button" onClick={handleClear}>Clear</button>
-        </div>
+          <button type="button" onClick={handleClear}>Marck</button>
+        </MenuChronometer>
       </Content>
     </Container>
   )
