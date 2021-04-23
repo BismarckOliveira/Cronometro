@@ -1,15 +1,13 @@
-import { Chronometer } from "./components/chronometer"
-import { Footer } from "./components/Footer"
-import { Header } from "./components/Header"
+import { ChronometerProvider } from "./hooks/useChronometer"
 import { GlobalStyle } from "./styles/global"
+import {PageChronometer} from './pages/Chronometer'
+
 
 export const App: React.FC = () => {
  return (
-   <>
-    <Header/>
-    <Chronometer />
-    <Footer/>
+   <ChronometerProvider>
+    <PageChronometer />
     <GlobalStyle />
-  </>
+  </ChronometerProvider>
  )
 }

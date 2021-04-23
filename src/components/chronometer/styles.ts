@@ -1,75 +1,60 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+flex: 1;
+background: black;
+margin-top: 2rem;
+
+border-radius: 0.25rem;
 
 
-interface ContentProps{
-  buttonColor: 'red' | 'green';
-}
-
-const colors = {
-  green: '#ccf6ef',
-  red:  '#ff2926',
-}
+`;
 
 export const Content = styled.div`
+ height: 100%;
+ display: flex;
+ flex-direction: column;
+ width: 250px;
 
-height: 80vh;
-padding: 2.5rem 1rem;
-max-width: 800px;
-margin: 0 auto;
+`;
+export const Time = styled.div`
+flex: 1;
 display: flex;
-flex-direction: column;
 align-items: center;
 justify-content: center;
-
-`;
-
-export const MenuChronometer = styled.div<ContentProps>`
-
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1rem;
-
-  button {
-  margin-top: 5rem;
-  width: 8rem;
-  height: 3rem;
-  border: 0;
-  background: var(--green-light);
-  border-radius: 0.25rem;
-  font-size: 1rem;
-  font-weight: bold;
-
-  transition: filter 0.2s;
-  
-  :first-child{
-  background: ${props => props.buttonColor === 'red' ? colors.red : colors.green};
-
-  
-
-  &:hover{
-    filter: brightness(0.9);
-  }
-}
-}
-
-`;
-
-export const Timer = styled.ul`
-flex: 1;
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: space-between;
-
-
-list-style: none;
-
+height: 100%;
+gap: 0.25rem;
+font-size: 3rem;
 
 span{
-  font-size: 5rem;
-  
+  background:#4d0000;
+  color: #ff0000;
+  text-shadow: 0 0 0.4vw #e50b0b;
 }
 
+p{
+  color: #ff0000;
+  text-shadow: 0 0 0.4vw #e50b0b;
+}`;
+
+export const Date = styled.div`
+
+display: flex;
+gap: 1rem;
+align-items:center;
+justify-content: center;
+
+div{ 
+  display: flex;
+  align-items:flex-end;
+  gap: 0.25rem;
+  
+ 
+  span{
+    font-size: 1.5rem;
+    background:#4d0000;
+    color: #ff0000;
+
+  }
+}
 `;
