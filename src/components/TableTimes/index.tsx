@@ -1,6 +1,14 @@
 import { Container , Content} from './styles';
+import { useChronometer } from '../../hooks/useChronometer'
 
 export const TableTimes = () => {
+const {tableMark} = useChronometer();
+
+function formatTime(value: Number) {
+  return value > 10 ? value.toString().padEnd(2, '0')
+    : value.toString().padStart(2, '0');
+}
+
   return (
     <Container>
       <Content>
@@ -12,26 +20,14 @@ export const TableTimes = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Corrida Da Manha</td>
-              <td>10:20</td>
-            </tr>
-            <tr>
-              <td>Corrida Da Manha</td>
-              <td>10:20</td>
-            </tr>
-            <tr>
-              <td>Corrida Da Manha</td>
-              <td>10:20</td>
-            </tr>
-            <tr>
-              <td>Corrida Da Manha</td>
-              <td>10:20</td>
-            </tr>
-            <tr>
-              <td>Corrida Da Manha</td>
-              <td>10:20</td>
-            </tr>
+           {tableMark.map(table => (
+               <tr key={table.id}>
+               <td>Marca {table.id}</td>
+               <td>{formatTime(table.hour)}:
+                   {formatTime(table.minute)}:
+                   {formatTime(table.second)}</td>
+             </tr>
+          ))}
           </tbody>
         </table>
       </Content>

@@ -37,7 +37,7 @@ export const Power = styled.div`
 }
 
  position:absolute;
- top: 0;
+ top: -0.5rem;
  right: 0;
  color: #e50b0b;
  opacity: 0.5;
@@ -53,24 +53,37 @@ display: flex;
 align-items: center;
 justify-content: center;
 height: 100%;
+
 gap: 0.25rem;
 font-size: 3rem;
 
+p{
+  color: #ff0000;
+  text-shadow: 0 0 0.4vw #e50b0b;
+}`;
+
+
+export const Box = styled.div`
+background:#4d0000;
+
+width: 250px;
+height: 50px;
+display: flex;
+align-items: center;
+justify-content: center;
+
 
 span{
-  
-  background:#4d0000;
-  width: 100%;
+
   color: #ff0000;
   text-shadow: 0 0 0.4vw #e50b0b;
   font-family: 'Orbitron';
  
 } 
 
-p{
-  color: #ff0000;
-  text-shadow: 0 0 0.4vw #e50b0b;
-}`;
+
+`;
+
 
 export const Date = styled.div`
 font-family: 'Orbitron';
@@ -90,6 +103,7 @@ div{
     font-size: 1.5rem;
     background:#4d0000;
     color: #ff0000;
+    text-shadow: 0 0 0.4vw #e50b0b;
 
   }
 }

@@ -1,36 +1,39 @@
-import { Container, Content, Date, Time, Power } from './styles';
+import { Container, Content, Date, Time, Power, Box } from './styles';
 import { useChronometer } from '../../hooks/useChronometer'
 import dayjs from 'dayjs';
-import {FaPowerOff} from 'react-icons/fa';
+import { FaPowerOff } from 'react-icons/fa';
 
 
 export const Chronometer: React.FC = () => {
-  const { laps } = useChronometer()
+  const { lapsTime } = useChronometer()
 
   function formatTime(value: Number) {
     return value > 10 ? value.toString().padEnd(2, '0')
       : value.toString().padStart(2, '0');
   }
-
-   
-
   return (
     <Container>
       <Content>
         <Power>
-          <FaPowerOff size={16}/>
+          <FaPowerOff size={16} />
         </Power>
         <Time>
-          <span>{formatTime(laps.hour)}</span>
+          <Box>
+            <span>{formatTime(lapsTime.hour)}</span>
+          </Box>
           <p>:</p>
-          <span>{formatTime(laps.minute)}</span>
+          <Box>
+            <span>{formatTime(lapsTime.minute)}</span>
+          </Box>
           <p>:</p>
-          <span>{formatTime(laps.second)}</span>
+          <Box>
+            <span>{formatTime(lapsTime.second)}</span>
+          </Box>
         </Time>
         <Date>
           <div>
             <span>{dayjs().date()}</span>
-            <p>dia</p>
+            <p>Dia</p>
           </div>
           <div>
             <span>{dayjs().month() + 1}</span>

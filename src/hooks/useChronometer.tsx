@@ -1,28 +1,43 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState , useEffect} from 'react';
+import { api } from '../services/api';
 
-interface Chronometer {
+interface Mark {
   hour: number;
   minute: number;
   second: number;
+  id: string;
 }
 
+type Chronometer = Omit<Mark, 'id' >
+
 interface ChronometerData {
-  laps: Chronometer;
+  lapsTime: Chronometer;
+  tableMark: Mark[];
   actionChronometer: () => void;
   isTimeActive: boolean;
   clearChronometer: () => void;
+  createNewMark: () => void;
 
 }
 
 const ChronometerContext = createContext<ChronometerData>({} as ChronometerData);
 
 export const ChronometerProvider: React.FC = ({ children }) => {
-  const [laps, setlaps] = useState<Chronometer>({ hour: 0, minute: 0, second: 0});
+  const [lapsTime, setlapsTime] = useState<Chronometer>({ hour: 0, minute: 0, second: 0});
   const [timeInterval, setTimeInterval] = useState<NodeJS.Timeout>({} as NodeJS.Timeout);
   const [isTimeActive, setIsTimeActive] = useState(false)
+  const [tableMark,setTableMark] = useState<Mark[]>([])
+
+
+  
+  useEffect(() => {
+    api.get('/laps')
+    .then(response => setTableMark(response.data.laps))
+  },[])
+
 
   function incrementSecond() {
-    setlaps((Copylaps) => {
+    setlapsTime((Copylaps) => {
       const newlap = { ...Copylaps };
       newlap.second += 1;
 
@@ -67,12 +82,32 @@ export const ChronometerProvider: React.FC = ({ children }) => {
       minute: 0,
       second: 0,
     }
-     setlaps(lap)
+     setlapsTime(lap)
   }
-  
+    
+   async function createNewMark(){
+     const value = {...lapsTime};
+    
+     value.hour = lapsTime.hour;
+     value.minute = lapsTime.minute;
+     value.second = lapsTime.second;
+       
+     const response = await api.post('/laps', value)
 
+      const { lap  } = response.data;
+      
+      setTableMark([...tableMark,  lap ])
+    }
+   
+    
   return (
-    <ChronometerContext.Provider value={{ actionChronometer, laps ,isTimeActive,clearChronometer}}>
+    <ChronometerContext.Provider value={
+      {createNewMark,
+      actionChronometer,
+      lapsTime,
+      isTimeActive,
+      clearChronometer,
+      tableMark}}>
       {children}
     </ChronometerContext.Provider>
   )
