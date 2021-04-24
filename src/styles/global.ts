@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
+
 export const GlobalStyle = createGlobalStyle`
 
 :root {
@@ -19,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 *::-webkit-scrollbar-thumb {
-  background: var(--green);
+  background: #fff;
   border-radius: 4px;
 }
 *::-webkit-scrollbar-thumb:window-inactive {

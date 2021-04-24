@@ -3,7 +3,7 @@ import { useChronometer } from '../../hooks/useChronometer'
 
 
 export const MenuChronometer: React.FC = () => {
-  const { isTimeActive, actionChronometer } = useChronometer();
+  const { isTimeActive, actionChronometer, clearChronometer } = useChronometer();
 
 
   function changeColors() {
@@ -16,7 +16,7 @@ export const MenuChronometer: React.FC = () => {
         <button type="button" onClick={actionChronometer}>
           {isTimeActive ? 'Stop' : 'Start'}
         </button>
-        <button type="button" >Clear</button>
+        <button type="button" onClick={clearChronometer}>Clear</button>
         <button type="button" >Marck</button>
       </Content>
     </Container>

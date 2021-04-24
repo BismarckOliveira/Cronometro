@@ -10,6 +10,7 @@ interface ChronometerData {
   laps: Chronometer;
   actionChronometer: () => void;
   isTimeActive: boolean;
+  clearChronometer: () => void;
 
 }
 
@@ -43,12 +44,12 @@ export const ChronometerProvider: React.FC = ({ children }) => {
 
   function startChronometer() {
     setIsTimeActive(true);
-    incrementSecond();
     const timer = setInterval(() => {
     incrementSecond(); 
     },1000)
     setTimeInterval(timer)
   }
+
 
   function stopChronometer() {
     setIsTimeActive(false);
@@ -60,8 +61,18 @@ export const ChronometerProvider: React.FC = ({ children }) => {
     return isTimeActive ? stopChronometer() : startChronometer();
   }
 
+  function clearChronometer(){
+    const lap = {
+      hour: 0,
+      minute: 0,
+      second: 0,
+    }
+     setlaps(lap)
+  }
+  
+
   return (
-    <ChronometerContext.Provider value={{ actionChronometer, laps ,isTimeActive}}>
+    <ChronometerContext.Provider value={{ actionChronometer, laps ,isTimeActive,clearChronometer}}>
       {children}
     </ChronometerContext.Provider>
   )
