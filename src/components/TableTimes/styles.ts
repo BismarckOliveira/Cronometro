@@ -13,16 +13,18 @@ table{
    width: 100%;   
 
    th{
-     padding: 1rem 0;
+     padding: 1rem;
      text-align: left;
-     line-height: 1.5rem;    
+     line-height: 1.5rem;  
+   
    }
 
 tbody{
    td {
-     padding: 1rem 0;
+     padding: 2rem;
      border-top: 0.2px solid #fff;
    }
+
    }
 }
 

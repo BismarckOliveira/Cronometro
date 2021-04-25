@@ -21,17 +21,17 @@ export const Container = styled.div`
 
 export const Content = styled.div<ContentProps>`
 
-display: grid;
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
 
   button {
-  width: 4rem;
-  height: 4rem;
+  width: 90px;
+  height: 90px;
   border: 0;
   background: #fff;
   border-radius: 500px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
 
   transition: filter 0.2s;

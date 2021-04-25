@@ -21,7 +21,7 @@ function formatTime(value: Number) {
           </thead>
           <tbody>
            {tableMark.map(table => (
-               <tr key={table.id}>
+             <tr key={table.id}>
                <td>Marca {table.id}</td>
                <td>{formatTime(table.hour)}:
                    {formatTime(table.minute)}:

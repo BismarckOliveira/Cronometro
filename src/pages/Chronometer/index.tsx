@@ -7,8 +7,8 @@ export const PageChronometer: React.FC = () => {
   return (
     <Container>
       <Chronometer />
-      <MenuChronometer />
       <TableTimes/>
+      <MenuChronometer />
     </Container>
   )
 }
