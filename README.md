@@ -9,9 +9,20 @@
 
 
 
-🚀 Uso
-yarn start
-yarn build
-yarn lint
+🚀 Uso 
+
+# yarn start
+# yarn build
+# yarn lint
 
 
+Contribuintes de código
+
+https://avatars.githubusercontent.com/u/10711649?v=4  
+
+- https://github.com/AlexcastroDev
+
+Autor
+👤 Bismarck Oliveira
+
+Github: @BismarckOliveira
