@@ -20,7 +20,7 @@ $ demo
 
 # Contribuintes de código
 
-![image](https://avatars.githubusercontent.com/u/10711649?v=4)  
+![image](https://avatars.githubusercontent.com/u/10711649?v=4 = =100x20)  
 
 - https://github.com/AlexcastroDev
 
