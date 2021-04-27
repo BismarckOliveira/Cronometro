@@ -12,9 +12,13 @@ $ demo
 
 # 🚀 Uso 
 
+## Para instalar os pacotes utilizar 
+| yarn |
+
+## Executar o Projeto 
 - yarn start
 - yarn build
-- yarn lint
+- 
 
 
 # Contribuintes de código
