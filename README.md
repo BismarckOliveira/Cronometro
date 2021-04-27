@@ -13,13 +13,10 @@ $ demo
 # 🚀 Uso 
 
 ## Para instalar os pacotes utilizar 
-| yarn |
+ - yarn 
 
 ## Executar o Projeto 
 - yarn start
-- yarn build
-- 
-
 
 # Contribuintes de código
 
