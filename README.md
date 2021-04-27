@@ -21,7 +21,7 @@ $ demo
 # Contribuintes de código
 
 
-<img src="https://avatars.githubusercontent.com/u/10711649?v=4" width="60">
+<img src="https://avatars.githubusercontent.com/u/10711649?v=4" width="80">
 
 - https://github.com/AlexcastroDev
 
